@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import React from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import 'papercss/dist/paper.min.css';
 import styled, { injectGlobal } from 'styled-components';
 import SearchBar from '../Containers/SearchBar';
@@ -11,26 +12,50 @@ injectGlobal`
     padding: 0;
   }
 
-  table {
-    width: auto;
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 
 const Container = styled.div`
-  max-width: 1000px;
+  max-width: 800px;
   padding: 0 15px;
 
   margin: 0 auto;
 `;
 
-const App = () => (
-  <Container>
-    <SearchBar />
-    <Table />
-  </Container>
-);
+export default class App extends PureComponent {
+  componentDidMount() {
+    this.props.loadWeather('Odessa');
+  }
 
-export default App;
+  render() {
+    return (
+      <Container>
+        <SearchBar />
+        <Table />
+      </Container>
+    );
+  }
+}
+
+App.propTypes = {
+  loadWeather: PropTypes.func.isRequired,
+};
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,

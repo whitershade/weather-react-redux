@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import Chart from './Chart';
 import GoogleMap from './GoogleMap';
 
+const StyledTr = styled.tr`
+  animation: fadeIn;
+  animation-duration: 0.3s;
+`;
+
 const StyledTd = styled.td`
   width: 200px;
   height: 200px;
@@ -20,13 +25,13 @@ const TableRow = ({ city: { coord: { lat, lon } }, weatherList }) => {
   const humidities = weatherMain.map(({ humidity }) => humidity);
 
   return (
-    <tr>
+    <StyledTr>
       <StyledTd>
         <GoogleMap lat={lat} lng={lon} />
       </StyledTd>
       <StyledTd>
         <Chart
-          label="K"
+          label="&nbsp;°C"
           color="green"
           data={temperatures}
           average={getAverageValueOfArray(temperatures)}
@@ -34,7 +39,7 @@ const TableRow = ({ city: { coord: { lat, lon } }, weatherList }) => {
       </StyledTd>
       <StyledTd>
         <Chart
-          label="hPA"
+          label="&nbsp;hPA"
           color="brown"
           data={pressures}
           average={getAverageValueOfArray(pressures)}
@@ -48,7 +53,7 @@ const TableRow = ({ city: { coord: { lat, lon } }, weatherList }) => {
           average={getAverageValueOfArray(humidities)}
         />
       </StyledTd>
-    </tr>
+    </StyledTr>
   );
 };
 

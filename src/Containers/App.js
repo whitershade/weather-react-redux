@@ -1,9 +1,9 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Component from '../Components/App';
+import { loadItems } from '../Actions/Weather';
 
-// function mapStateToProps(dispatch) {
-//   return bindActionCreators({ getVideos }, dispatch);
-// }
+const mapDispatchToProps = dispatch => ({
+  loadWeather: cityName => dispatch(loadItems(cityName)),
+});
 
-export default connect(null, null)(Component);
+export default connect(null, mapDispatchToProps)(Component);

@@ -10,8 +10,6 @@ module.exports = {
     publicPath: '/',
   },
 
-  devtool: 'source-map',
-
   module: {
     rules: [
       {
@@ -28,7 +26,7 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
+      sourceMap: false,
       comments: false,
     }),
   ],
