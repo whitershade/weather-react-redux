@@ -5,8 +5,10 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   color: red;
 
+  transform: translateZ(0px);
+
   animation-name: ${props => (props.isPreloaderHidding ? 'fadeOut' : 'none')};
-  animation-duration: 0.5s;
+  animation-duration: 0.7s;
   animation-iteration-count: 1;
 `;
 

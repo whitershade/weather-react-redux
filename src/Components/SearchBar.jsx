@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
+  display: flex;
+
   margin-bottom: 15px;
   margin-top: 15px;
 `;
 
 const StyledInput = styled.input`
-  display: inline-flex;
-
   margin-right: 10px;
   padding: 0.75rem;
 `;
