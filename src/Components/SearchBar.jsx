@@ -40,7 +40,9 @@ export default class SearchBar extends PureComponent {
     });
   }
 
-  clearSearchInput() {
+  clearSearchInput(event) {
+    event.preventDefault();
+
     this.setState({
       searchText: '',
     });

@@ -29,7 +29,17 @@ const ComposedGoogleMapComponent = compose(
     googleMapURL:
       'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `175px`, width: `100%` }} />,
+    containerElement: (
+      <div
+        style={{
+          height: `calc(100% - 16px)`,
+          width: `calc(100% - 16px)`,
+          position: `absolute`,
+          top: `8px`,
+          left: `8px`,
+        }}
+      />
+    ),
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,

@@ -11,9 +11,13 @@ const StyledTr = styled.tr`
 `;
 
 const StyledTd = styled.td`
+  position: relative;
+
+  vertical-align: bottom;
+
   width: 25%;
   max-width: 25%;
-  min-width: 25%;
+  min-width: 200px;
 `;
 
 const getAverageValueOfArray = array => round(sum(array) / array.length);
