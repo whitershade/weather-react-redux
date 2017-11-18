@@ -10,16 +10,24 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
+  width: 200px;
   margin-right: 10px;
   padding: 0.75rem;
+`;
+
+const StyledButton = styled.button`
+  width: 90px;
+
+  margin-right: 10px;
 `;
 
 export default class SearchBar extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.searchOnChange = this.searchOnChange.bind(this);
     this.formOnSubmit = this.formOnSubmit.bind(this);
+    this.searchOnChange = this.searchOnChange.bind(this);
+    this.clearSearchInput = this.clearSearchInput.bind(this);
 
     this.state = {
       searchText: 'Odessa',
@@ -32,6 +40,12 @@ export default class SearchBar extends PureComponent {
     });
   }
 
+  clearSearchInput() {
+    this.setState({
+      searchText: '',
+    });
+  }
+
   formOnSubmit(event) {
     event.preventDefault();
 
@@ -39,17 +53,24 @@ export default class SearchBar extends PureComponent {
   }
 
   render() {
-    const { formOnSubmit, searchOnChange, state: { searchText } } = this;
+    const {
+      formOnSubmit,
+      searchOnChange,
+      props: { isLoading },
+      state: { searchText },
+    } = this;
 
     return (
       <StyledForm onSubmit={formOnSubmit}>
         <StyledInput value={searchText} onChange={searchOnChange} />
-        <button>Send</button>
+        <StyledButton disabled={isLoading}>Send</StyledButton>
+        <StyledButton onClick={this.clearSearchInput}>Clear</StyledButton>
       </StyledForm>
     );
   }
 }
 
 SearchBar.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   loadWeather: PropTypes.func.isRequired,
 };

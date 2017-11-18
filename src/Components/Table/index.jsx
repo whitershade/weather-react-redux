@@ -11,16 +11,22 @@ const StyledThead = styled.thead`
   animation-iteration-count: 1;
 `;
 
+const StyledTh = styled.th`
+  width: 25%;
+  min-width: 25%;
+  max-width: 25%;
+`;
+
 const Table = ({ weatherData, isLoading, isPreloaderHidding }) => (
   <div>
     <table>
       {!isEmpty(weatherData) ? (
         <StyledThead>
           <tr>
-            <th>City</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
+            <StyledTh>City</StyledTh>
+            <StyledTh>Temperature</StyledTh>
+            <StyledTh>Pressure</StyledTh>
+            <StyledTh>Humidity</StyledTh>
           </tr>
         </StyledThead>
       ) : null}

@@ -4,7 +4,7 @@ import { loadItems } from '../Actions/Weather';
 
 function mapStateToProps(state) {
   return {
-    data: state.data,
+    isLoading: state.weather.isLoading,
   };
 }
 

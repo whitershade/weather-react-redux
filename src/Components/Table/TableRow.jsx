@@ -11,8 +11,9 @@ const StyledTr = styled.tr`
 `;
 
 const StyledTd = styled.td`
-  width: 200px;
-  max-width: 200px;
+  width: 25%;
+  max-width: 25%;
+  min-width: 25%;
 `;
 
 const getAverageValueOfArray = array => round(sum(array) / array.length);
