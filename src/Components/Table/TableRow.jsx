@@ -7,6 +7,7 @@ import GoogleMap from './GoogleMap';
 
 const StyledTd = styled.td`
   width: 200px;
+  height: 200px;
 `;
 
 const getAverageValueOfArray = array => round(sum(array) / array.length);

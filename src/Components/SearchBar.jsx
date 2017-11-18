@@ -2,7 +2,17 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+  margin-bottom: 15px;
+  margin-top: 15px;
+`;
+
+const StyledInput = styled.input`
+  display: inline-flex;
+
+  margin-right: 10px;
+  padding: 0.75rem;
+`;
 
 export default class SearchBar extends PureComponent {
   constructor(props) {
@@ -33,7 +43,7 @@ export default class SearchBar extends PureComponent {
 
     return (
       <StyledForm onSubmit={formOnSubmit}>
-        <input value={searchText} onChange={searchOnChange} />
+        <StyledInput value={searchText} onChange={searchOnChange} />
         <button>Send</button>
       </StyledForm>
     );

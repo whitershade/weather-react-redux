@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
+import 'papercss/dist/paper.min.css';
 import styled, { injectGlobal } from 'styled-components';
 import SearchBar from '../Containers/SearchBar';
 import Table from '../Containers/Table';
@@ -9,17 +10,24 @@ injectGlobal`
     margin: 0;
     padding: 0;
   }
+
+  table {
+    width: auto;
+  }
 `;
 
-const StyledApp = styled.div`
-  padding: 15px;
+const Container = styled.div`
+  max-width: 1000px;
+  padding: 0 15px;
+
+  margin: 0 auto;
 `;
 
 const App = () => (
-  <StyledApp>
+  <Container>
     <SearchBar />
     <Table />
-  </StyledApp>
+  </Container>
 );
 
 export default App;
