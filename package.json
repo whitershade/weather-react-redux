@@ -56,8 +56,11 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-google-maps": "^9.2.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^5.0.6",
+    "react-sparklines": "^1.7.0",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "styled-components": "^2.2.3"

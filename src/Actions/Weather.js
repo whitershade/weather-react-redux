@@ -12,7 +12,7 @@ export function loadItems(cityName) {
   return dispatch => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${
           API_KEY
         }`,
       )

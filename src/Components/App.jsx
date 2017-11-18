@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-expressions */
-import React, { PureComponent } from 'react';
+import React from 'react';
 import styled, { injectGlobal } from 'styled-components';
 import SearchBar from '../Containers/SearchBar';
+import Table from '../Containers/Table';
 
 injectGlobal`
   body {
@@ -14,15 +15,14 @@ const StyledApp = styled.div`
   padding: 15px;
 `;
 
-export default class App extends PureComponent {
-  render() {
-    return (
-      <StyledApp>
-        <SearchBar />
-      </StyledApp>
-    );
-  }
-}
+const App = () => (
+  <StyledApp>
+    <SearchBar />
+    <Table />
+  </StyledApp>
+);
+
+export default App;
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
