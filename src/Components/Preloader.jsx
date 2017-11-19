@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  color: red;
-
-  transform: translateZ(0px);
-
-  animation-name: ${props => (props.isPreloaderHidding ? 'fadeOut' : 'none')};
-  animation-duration: 0.7s;
-  animation-iteration-count: 1;
+  opacity: ${props => (props.isPreloaderHidding ? '.25' : '1')};
+  transition: opacity 0.3s ease;
 `;
 
 const Spinner = styled.div`
@@ -33,14 +28,26 @@ const Spinner = styled.div`
   }
 `;
 
-const Preloader = ({ isPreloaderHidding }) => (
-  <StyledDiv isPreloaderHidding={isPreloaderHidding}>
-    <Spinner />
-  </StyledDiv>
-);
+export default class Preloader extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { isPreloaderHidding: false };
+  }
+
+  componentWillReceiveProps({ isPreloaderHidding }) {
+    this.setState({ isPreloaderHidding });
+  }
+
+  render() {
+    return (
+      <StyledDiv isPreloaderHidding={this.state.isPreloaderHidding}>
+        <Spinner />
+      </StyledDiv>
+    );
+  }
+}
 
 Preloader.propTypes = {
   isPreloaderHidding: PropTypes.bool.isRequired,
 };
-
-export default Preloader;

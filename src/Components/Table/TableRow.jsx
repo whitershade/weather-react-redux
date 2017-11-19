@@ -6,7 +6,7 @@ import Chart from './Chart';
 import GoogleMap from './GoogleMap';
 
 const StyledTr = styled.tr`
-  animation: fadeIn;
+  animation-name: fadeIn;
   animation-duration: 0.3s;
 `;
 
